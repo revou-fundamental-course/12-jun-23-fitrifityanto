@@ -59,21 +59,21 @@ function onReverse() {
     tempFirst.value = ''
     tempSecond.value = ''
     document.getElementById('kalkulasi').value = ''
-
+    document.getElementById('errorMsg').textContent = ''
 
     if (tempNameFirst == 'celsius') {
         temperatureFirst.dataset.tempFirst = 'fahrenheit'
-        temperatureFirst.textContent = 'Fahrenheit \u00B0F'
+        temperatureFirst.textContent = 'Fahrenheit (\u00B0F)'
 
         temperatureSecond.dataset.tempSecond = 'celsius'
-        temperatureSecond.textContent = 'Celsius \u00B0C'
+        temperatureSecond.textContent = 'Celsius (\u00B0C)'
 
     } else {
         temperatureFirst.dataset.tempFirst = 'celsius'
-        temperatureFirst.textContent = 'Celsius \u00B0C'
+        temperatureFirst.textContent = 'Celsius (\u00B0C)'
 
         temperatureSecond.dataset.tempSecond = 'fahrenheit'
-        temperatureSecond.textContent = 'Fahrenheit \u00B0F'
+        temperatureSecond.textContent = 'Fahrenheit (\u00B0F)'
     }
 }
 
@@ -81,12 +81,13 @@ function onReset() {
     tempFirst.value = ''
     tempSecond.value = ''
     document.getElementById('kalkulasi').value = ''
+    document.getElementById('errorMsg').textContent = ''
 
     temperatureFirst.dataset.tempFirst = 'celsius'
-    temperatureFirst.textContent = 'Celsius \u00B0C'
+    temperatureFirst.textContent = 'Celsius (\u00B0C)'
 
     temperatureSecond.dataset.tempSecond = 'fahrenheit'
-    temperatureSecond.textContent = 'Fahrenheit \u00B0F'
+    temperatureSecond.textContent = 'Fahrenheit (\u00B0F)'
 }
 
 
