@@ -80,6 +80,12 @@ button:active {
     color: var(--color-nd);
 }
 
+button:visited {
+    background-color: var(--color-accent);
+    color: white;
+    border: .5px solid var(--color-accent2);
+}
+
 input {
     border: none;
     background-color: var(--color-accent2);
