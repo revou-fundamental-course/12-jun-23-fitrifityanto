@@ -32,21 +32,21 @@
             </section>
             <section id="konversi">
                 <div>
-                    <h4 data-temp-first="celsius" >Celsius (&#176;C)</h4>
-                    <input type="text" name="tempFirst" id="tempFirst">
+                    <h4 data-temp-input="celsius" >Celsius (&#176;C)</h4>
+                    <input type="text" name="tempInput" id="tempInput" placeholder="masukkan temperatur">
                 </div>
                 <div>
-                    <h4 data-temp-second="fahrenheit">Fahrenheit (&#176;F)</h4>
-                    <input type="text" name="tempSecond" id="tempSecond">
+                    <h4 data-temp-result="fahrenheit">Fahrenheit (&#176;F)</h4>
+                    <input type="text" name="tempResult" id="tempResult" disabled>
                 </div>
                 <div>
                         <button onclick="onConvert()">Konversi</button>
                         <button onclick="onReset()">Reset</button>
-                        <button onclick="onReverse()">Reserve</button>
+                        <button onclick="onReverse()">Reverse</button>
                 </div>
                 <div>
                     <h3>Cara Kalkulasi</h3>
-                    <textarea name="kalkulasi" id="kalkulasi" cols="30" rows="5"></textarea>
+                    <textarea name="kalkulasi" id="kalkulasi" cols="30" rows="5" disabled></textarea>
                 </div>
             </section>
             <section id="explanation">
@@ -56,7 +56,8 @@
                     <div class="howto">
                         <h2>Cara Konversi dari Celsius (&#176;C) ke Fahrenheit (&#176;F)</h2>
                         <p>Suhu <span style="font-size: 1.5rem;">&#1029;</span> dalam derajat Fahrenheit sama dengan suhu <span style="font-size: 1.5rem;">&#1029;</span> dalam derajat Celsius dikali <span style="font-size: 1.5rem;">9/5</span>) ditambah <span style="font-size: 1.5rem;">32</span></p>
-                        <span><span style="font-size: 1.5rem;">&#1029;</span>(&#176;F) =  (<span style="font-size: 1.5rem;">&#1029;</span>(&#176;C) x <span style="font-size: 1.5rem;">9/5</span>) + <span style="font-size: 1.5rem;">32</span> </p>
+                        <span style="font-size: 1.5rem;">&#1029;</span>(&#176;F) =  (<span style="font-size: 1.5rem;">&#1029;</span>(&#176;C) x <span style="font-size: 1.5rem;">9/5</span>) + <span style="font-size: 1.5rem;">32</span> </p>
+                        
                         <p style="font-style: italic;">atau</p>
                         <p>
                             <span style="font-size: 1.5rem;">&#1029;</span>(&#176;F) =  (<span style="font-size: 1.5rem;">&#1029;</span>(&#176;C) x <span style="font-size: 1.5rem;">1.8</span>) + <span style="font-size: 1.5rem;">32</span>
@@ -68,6 +69,7 @@
                     <div class="howto">
                         <h2>Cara Konversi dari Fahrenheit (&#176;F) ke Celsius (&#176;C)  </h2>
                         <p>Suhu <span style="font-size: 1.5rem;">&#1029;</span> dalam derajat Celsius sama dengan suhu <span style="font-size: 1.5rem;">&#1029;</span> dalam derajat Fahrenheit dikurangi <span style="font-size: 1.5rem;">32</span> dikali <span style="font-size: 1.5rem;">5/9</span></p>
+
                         <p><span style="font-size: 1.5rem;">&#1029;</span>(&#176;C) =  (<span style="font-size: 1.5rem;">&#1029;</span>(&#176;F) - <span style="font-size: 1.5rem;">32</span>) * <span style="font-size: 1.5rem;">5/9</span></p>
      
                     </div>

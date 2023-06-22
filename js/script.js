@@ -1,90 +1,74 @@
-let tempFirst = document.getElementById('tempFirst')
-let tempSecond = document.getElementById('tempSecond')
+let tempInput = document.getElementById('tempInput')
+let tempResult = document.getElementById('tempResult')
 
-let temperatureFirst = document.querySelector('[data-temp-first]')
-let temperatureSecond = document.querySelector('[data-temp-second]')
+let temperatureInput = document.querySelector('[data-temp-input]')
+let temperatureResult = document.querySelector('[data-temp-result]')
 
 function onConvert() {
-    let tempNameFirst = temperatureFirst.dataset.tempFirst
+    let tempNameInput = temperatureInput.dataset.tempInput
 
-    let tempFirstValue = tempFirst.value
+    let tempInputValue = tempInput.value
 
     let error = validate()
 
-    if (error.tempFirstValue) {
-        document.getElementById('errorMsg').textContent = error.tempFirstValue
-        document.getElementById('errorMsg').style.visibility = 'visible'
+    if (error.tempInputValue) {
+        displayError(error.tempInputValue, 'visible')
     }
 
-    else if (!error.tempFirstValue) {
-        if (tempNameFirst === 'celsius') {
-                let tempSecond = (tempFirstValue * 9/5) + 32
-                document.getElementById('tempSecond').value = tempSecond
-                document.getElementById('kalkulasi').value = `(${tempFirstValue} \u00B0C x 9/5) + 32 = ${tempSecond} \u00B0F `
+    else if (!error.tempInputValue) {
+        if (tempNameInput === 'celsius') {
+                let tempResult = (tempInputValue * 9/5) + 32
+                document.getElementById('tempResult').value = tempResult
+                document.getElementById('kalkulasi').value = `(${tempInputValue} \u00B0C x 9/5) + 32 = ${tempResult} \u00B0F `
             }
     
-        else if (tempNameFirst === 'fahrenheit')  {
-                let tempSecond = (tempFirstValue - 32) * 5/9
-                document.getElementById('tempSecond').value = tempSecond
+        else if (tempNameInput === 'fahrenheit')  {
+                let tempResult = (tempInputValue - 32) * 5/9
+                document.getElementById('tempResult').value = tempResult
     
-                document.getElementById('kalkulasi').value = `(${tempFirstValue} \u00B0F - 32) x 5/9 = ${tempSecond} \u00B0C `
+                document.getElementById('kalkulasi').value = `(${tempInputValue} \u00B0F - 32) x 5/9 = ${tempResult} \u00B0C `
         }
-        document.getElementById('errorMsg').textContent = ''
-        document.getElementById('errorMsg').style.visibility = 'hidden'
+        displayError('', 'hidden')
     }
 }
 
 function validate() {
     let error = {}
-    const tempFirstValue = tempFirst.value
+    const tempInputValue = tempInput.value
 
-    if (!tempFirstValue) {
-        error.tempFirstValue = 'Input tidak boleh kosong'
+    if (!tempInputValue) {
+        error.tempInputValue = 'Input tidak boleh kosong'
     } 
-    else if (isNaN(tempFirstValue)) {
-        error.tempFirstValue = 'Input harus angka'
+    else if (isNaN(tempInputValue)) {
+        error.tempInputValue = 'Input harus angka'
     }
 
     return error
 }
 
 function onReverse() {
-    let tempNameFirst = temperatureFirst.dataset.tempFirst
+    let tempNameInput = temperatureInput.dataset.tempInput
 
-    tempFirst.value = ''
-    tempSecond.value = ''
+    tempInput.value = ''
+    tempResult.value = ''
     document.getElementById('kalkulasi').value = ''
-    document.getElementById('errorMsg').textContent = ''
-    document.getElementById('errorMsg').style.visibility = 'hidden'
+    displayError('', 'hidden')
 
-    if (tempNameFirst == 'celsius') {
-        temperatureFirst.dataset.tempFirst = 'fahrenheit'
-        temperatureFirst.textContent = 'Fahrenheit (\u00B0F)'
-
-        temperatureSecond.dataset.tempSecond = 'celsius'
-        temperatureSecond.textContent = 'Celsius (\u00B0C)'
+    if (tempNameInput == 'celsius') {
+        displayTemperature('fahrenheit', 'Fahrenheit (\u00B0F)', 'celsius', 'Celsius (\u00B0C)')
 
     } else {
-        temperatureFirst.dataset.tempFirst = 'celsius'
-        temperatureFirst.textContent = 'Celsius (\u00B0C)'
-
-        temperatureSecond.dataset.tempSecond = 'fahrenheit'
-        temperatureSecond.textContent = 'Fahrenheit (\u00B0F)'
+        displayTemperature('celsius', 'Celsius (\u00B0C)', 'fahrenheit', 'Fahrenheit (\u00B0F)')
     }
 }
 
 function onReset() {
-    tempFirst.value = ''
-    tempSecond.value = ''
+    tempInput.value = ''
+    tempResult.value = ''
     document.getElementById('kalkulasi').value = ''
-    document.getElementById('errorMsg').textContent = ''
-    document.getElementById('errorMsg').style.visibility = 'hidden'
+    displayError('', 'hidden')
 
-    temperatureFirst.dataset.tempFirst = 'celsius'
-    temperatureFirst.textContent = 'Celsius (\u00B0C)'
-
-    temperatureSecond.dataset.tempSecond = 'fahrenheit'
-    temperatureSecond.textContent = 'Fahrenheit (\u00B0F)'
+    displayTemperature('celsius', 'Celsius (\u00B0C)', 'fahrenheit', 'Fahrenheit (\u00B0F)' )
 }
 
 
@@ -95,4 +79,17 @@ for (i = 0; i < accordion.length; i++) {
     accordion[i].addEventListener('click', function() {
         this.classList.toggle('active')
     })
+}
+
+function displayError (content, visibility) {
+    document.getElementById('errorMsg').textContent = content
+    document.getElementById('errorMsg').style.visibility = visibility
+}
+
+function displayTemperature (datasetInput, contentInput, datasetResult, contentResult) {
+    temperatureInput.dataset.tempInput = datasetInput
+    temperatureInput.textContent = contentInput
+
+    temperatureResult.dataset.tempResult = datasetResult
+    temperatureResult.textContent = contentResult
 }
