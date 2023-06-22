@@ -71,23 +71,23 @@ button {
     cursor: pointer;
 }
 
-button:hover {
-    background-color: var(--color-accent2);
-    border: .5px solid var(--color-primary);
-    color: var(--color-accent2);
-    color: var(--color-font);
-}
+    button:hover {
+        background-color: var(--color-accent2);
+        border: .5px solid var(--color-primary);
+        color: var(--color-accent2);
+        color: var(--color-font);
+    }
 
-button:active {
-    background-color: var(--color-primary);
-    color: var(--color-nd);
-}
+    button:active {
+        background-color: var(--color-primary);
+        color: var(--color-nd);
+    }
 
-button:visited {
-    background-color: var(--color-accent);
-    color: white;
-    border: .5px solid var(--color-accent2);
-}
+    button:visited {
+        background-color: var(--color-accent);
+        color: white;
+        border: .5px solid var(--color-accent2);
+    }
 
 input {
     border: none;
@@ -96,10 +96,10 @@ input {
     font-size: 1.375rem;
 }
 
-input[type='text']::placeholder {
-    color: var(--color-primary);
-    font-size: 1rem;
-}
+    input[type='text']::placeholder {
+        color: var(--color-primary);
+        font-size: 1rem;
+    }
 
 textarea {
     resize: none;
@@ -113,10 +113,6 @@ textarea {
 input:focus,
 textarea:focus {
     outline: none;
-}
-
-input::placeholder {
-    color: var(--color-font);
 }
 
 img {
@@ -142,11 +138,19 @@ main {
     grid-template-rows: repeat(4, 50px);
 }
 
-.header-grid > div:first-child {
-    grid-area: 1 / 1 / span 3 / span 2;
-    position: relative;
-    box-shadow: 3px 5px 10px 4px var(--color-primary);
-}
+    .header-grid > div:first-child {
+        grid-area: 1 / 1 / span 3 / span 2;
+        position: relative;
+        box-shadow: 3px 5px 10px 4px var(--color-primary);
+    }
+
+    .header-grid > div:last-child {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-area: 3 / 1 / span 2 / span 2;
+        z-index: 1;
+    }
 
 .background-img {
     position: absolute;
@@ -157,14 +161,6 @@ main {
     mix-blend-mode: lighten;
     left: 0;
     top: 0;
-}
-
-.header-grid > div:last-child {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    grid-area: 3 / 1 / span 2 / span 2;
-    z-index: 1;
 }
 
 .main-container {
@@ -193,20 +189,12 @@ main {
 
 #konversi {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     gap: .75rem;
 }
 
     #konversi > div:nth-child(3) {
-        grid-row-start: 2;
-        grid-column: span 2;
         display: flex;
         gap: .5rem;
-    }
-
-    #konversi > div:last-child {
-        grid-row-start: 3;
-        grid-column: span 2;
     }
 
     #konversi > div:first-child, 
@@ -234,20 +222,20 @@ main {
         left: 0;
     }
 
+    .container-explain.active .howto {
+        display: block;
+    }
+    
+    .container-explain.active h5::before {
+        content: '-';
+    }
+
 .howto {
     display: none;
     border: .5px solid var(--color-accent2);
     padding: 1rem;
     position: relative;
 }
-
-    .container-explain.active .howto {
-        display: block;
-    }
-
-    .container-explain.active h5::before {
-        content: '-';
-    }
 
 footer {
     background-color: var(--color-nd);
@@ -258,5 +246,23 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+@media only screen and (min-width:540px) {
+    #konversi {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+        #konversi > div:nth-child(3) {
+            grid-row-start: 2;
+            grid-column: span 2;
+        }
+    
+        #konversi > div:last-child {
+            grid-row-start: 3;
+            grid-column: span 2;
+        }
+
 }
 
